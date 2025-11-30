@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "92cb7811-3ada-4d02-b719-3dcd86acfaa9",
+		"name": "Ride-Sharing-System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30681896"
+	},
+	"item": [
+		{
+			"name": "customer-service",
+			"item": [
+				{
+					"name": "create-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/ride-request/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ride-request",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request-history",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/ride-request/request-history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ride-request",
+								"request-history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "driver-service",
+			"item": [
+				{
+					"name": "assign-driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/ride-request/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ride-request",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request-history",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/ride-request/request-history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ride-request",
+								"request-history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api gatway",
+			"item": [
+				{
+					"name": "AuthController",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"driver10\",\n  \"password\": \"123456\",\n  \"email\": \"d1@test.com\",\n  \"phone\": \"0500000000\",\n  \"fullName\":\"Amaal\",\n  \"roleId\": 1\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"driver10\",\n  \"password\": \"123456\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CustomerController",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/ride-request/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"ride-request",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-history",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/ride-request/get-history",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ride-request",
+										"get-history"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DriverController",
+					"item": [
+						{
+							"name": "update-availability",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/driver/update-availability",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"driver",
+										"update-availability"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "assign-ride",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"requestDateTime\": \"2025-11-30T14:23:15\",\n  \"pickupLat\": 21.500,\n  \"pickupLng\": 39.200,\n  \"dropoffLat\": 21.505,\n  \"dropoffLng\": 39.210\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/driver/update-availability",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"driver",
+										"update-availability"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-history",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/driver/get-history",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"driver",
+										"get-history"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-unchosen-rides",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "123",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/driver/get-unchosen-rides",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"driver",
+										"get-unchosen-rides"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
