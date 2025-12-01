@@ -1,0 +1,3 @@
+CREATE SCHEMA IF NOT EXISTS driver_schema;
+CREATE SCHEMA IF NOT EXISTS customer_schema;
+CREATE SCHEMA IF NOT EXISTS auth_schema;

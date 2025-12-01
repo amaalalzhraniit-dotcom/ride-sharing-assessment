@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: ride_postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rides_db
+    ports:
+      - "5432:5432"
+    networks:
+      - ride-net
+
+  customer-service:
+    build: ./Ride-Sharing-Customer-System
+    container_name: customer_service
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    networks:
+      - ride-net
+
+  driver-service:
+    build: ./Ride-Sharing-Driver-System
+    container_name: driver_service
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8082"
+    networks:
+      - ride-net
+
+  gateway-service:
+    build: ./Ride-Sharing-System
+    container_name: gateway_service
+    depends_on:
+      - postgres
+      - customer-service
+      - driver-service
+    ports:
+      - "8080:8080"
+    networks:
+      - ride-net
+
+networks:
+  ride-net:
+    driver: bridge
+
+volumes:
+ pgdata:
